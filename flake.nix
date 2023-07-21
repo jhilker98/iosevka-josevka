@@ -92,6 +92,7 @@
         installPhase = ''
           mkdir -p $out
           cp *.woff2 $out
+          cp ${src/family.css} $out/family.css
         '';
       };
 

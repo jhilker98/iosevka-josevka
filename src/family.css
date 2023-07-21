@@ -1,0 +1,12 @@
+@font-face {
+    font-family: "Josevka Code";
+    src: local("iosevka-josevka-code-regular"),
+        url("iosevka-josevka-code-regular") format("woff2");
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Josevka Code";
+    src: local("iosevka-josevka-code-italic") 
+        url("iosevka-josevka-code-italic") format("woff2");
+}
