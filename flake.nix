@@ -30,7 +30,7 @@
                 inherits = "ss14";
                 design = {
                   zero = "slashed";
-                  at = "fourfold-solid-inner-tall";
+                  at = "fourfold";
                 };
               };
               slopes.upright = {
@@ -46,22 +46,22 @@
                   css = "italic";
                 };
                 
-                weights.light = {
-                  shape = 300;
-                  menu = 300;
-                  css = 300;
-                };
+                #weights.light = {
+                #  shape = 300;
+                #  menu = 300;
+                #  css = 300;
+                #};
                 
                 weights.regular = {
                   shape = 400;
                   menu = 400;
                   css = 400;
                 };
-                weights.medium = {
-                  shape = 500;
-                  menu = 500;
-                  css = 500;
-                };
+                #weights.medium = {
+                #  shape = 500;
+                #  menu = 500;
+                #  css = 500;
+                #};
 
 
                 widths.normal = {
