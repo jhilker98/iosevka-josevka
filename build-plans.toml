@@ -1,0 +1,41 @@
+[buildPlans.josevka-code]
+family = "Josevka Code"
+spacing = "normal"
+serifs = "sans"
+no-cv-ss = false
+export-glyph-names = false
+
+  [buildPlans.josevka-code.variants]
+  inherits = "ss14"
+
+    [buildPlans.josevka-code.variants.design]
+    zero = "slashed"
+    at = "fourfold"
+
+  [buildPlans.josevka-code.ligations]
+  inherits = "dlig"
+
+[buildPlans.josevka-code.weights.light]
+shape = 300
+menu = 300
+css = 300
+
+[buildPlans.josevka-code.weights.regular]
+shape = 400
+menu = 400
+css = 400
+
+[buildPlans.josevka-code.weights.medium]
+shape = 500
+menu = 500
+css = 500
+
+[buildPlans.josevka-code.weights.bold]
+shape = 700
+menu = 700
+css = 700
+
+[buildPlans.josevka-code.widths.normal]
+shape = 525
+menu = 5
+css = "normal"
