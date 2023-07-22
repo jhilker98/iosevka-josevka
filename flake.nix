@@ -29,6 +29,7 @@
               variants = {
                 inherits = "ss14";
                 design = {
+                  b = "toothed-serifless";
                   zero = "slashed";
                   at = "fourfold";
                 };
