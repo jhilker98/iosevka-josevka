@@ -23,10 +23,17 @@
           josevka-code = pkgs.iosevka.override {
             privateBuildPlan = builtins.readFile ./build-plans.toml;
             set = "josevka-code";
-      }; in 
+      }; 
+          josevka-sans = pkgs.iosevka.override {
+            privateBuildPlan = builtins.readFile ./build-plans.toml;
+            set = "josevka-sans";
+          };
+
+      
+      in 
       ''
       mkdir -p ttf
-          for ttf in ${josevka-code}/share/fonts/truetype/*.ttf; do
+          for ttf in ${josevka-code}/share/fonts/truetype/*.ttf ${josevka-sans}/share/fonts/truetype/*.ttf; do
             cp $ttf .
             echo "processing $ttf"
               name=`basename -s .ttf $ttf`

@@ -38,3 +38,83 @@ css = "italic"
 shape = 525
 menu = 5
 css = "normal"
+
+[buildPlans.iosevka-josevka-sans]
+family = "Josevka Sans"
+spacing = "quasi-proportional"
+serifs = "sans"
+no-cv-ss = true
+export-glyph-names = false
+
+  [buildPlans.iosevka-josevka-sans.variants]
+  inherits = "ss03"
+
+    [buildPlans.iosevka-josevka-sans.variants.design]
+    capital-j = "serifed-symmetric"
+    b = "toothed-serifless"
+    f = "flat-hook-serifless-crossbar-at-x-height"
+    g = "single-storey-serifless"
+    i = "serifless"
+    k = "symmetric-connected-serifless"
+    q = "tailed-serifless"
+    t = "flat-hook-short-neck"
+    four = "semi-open"
+    dollar = "open"
+    percent = "rings-continuous-slash"
+    question = "corner"
+    cent = "open"
+
+    [buildPlans.iosevka-josevka-sans.variants.italic]
+    f = "flat-hook-tailed-crossbar-at-x-height"
+    l = "tailed-serifed"
+    q = "diagonal-tailed-serifless"
+
+  [buildPlans.iosevka-josevka-sans.ligations]
+  inherits = "dlig"
+
+[buildPlans.iosevka-josevka-sans.weights.regular]
+shape = 400
+menu = 400
+css = 400
+
+[buildPlans.iosevka-josevka-sans.weights.medium]
+shape = 500
+menu = 500
+css = 500
+
+[buildPlans.iosevka-josevka-sans.weights.semibold]
+shape = 600
+menu = 600
+css = 600
+
+[buildPlans.iosevka-josevka-sans.weights.bold]
+shape = 700
+menu = 700
+css = 700
+
+[buildPlans.iosevka-josevka-sans.weights.extrabold]
+shape = 800
+menu = 800
+css = 800
+
+[buildPlans.iosevka-josevka-sans.weights.heavy]
+shape = 900
+menu = 900
+css = 900
+
+[buildPlans.iosevka-josevka-sans.slopes.upright]
+angle = 0
+shape = "upright"
+menu = "upright"
+css = "normal"
+
+[buildPlans.iosevka-josevka-sans.slopes.italic]
+angle = 9.4
+shape = "italic"
+menu = "italic"
+css = "italic"
+
+[buildPlans.iosevka-josevka-sans.widths.normal]
+shape = 550
+menu = 5
+css = "normal"
