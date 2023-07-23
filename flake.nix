@@ -7,77 +7,28 @@
   };
 
   outputs = { self, nixpkgs, utils }: 
-  let
-    system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
+
+  utils.lib.eachSystem [ "x86_64-linux" ] (system:
+    let
+    pkgs = import nixpkgs {
+          inherit system;
+    };
 
     in {
-      packages.${system}.default = pkgs.stdenvNoCC.mkDerivation {
+      packages.default = pkgs.stdenvNoCC.mkDerivation {
         name = "josevka";
         dontUnpack = true;
         buildInputs = with pkgs; [ python311Packages.brotli python311Packages.fonttools ];
         buildPhase = let
           josevka-code = pkgs.iosevka.override {
+            privateBuildPlan = builtins.readFile ./build-plans.toml;
             set = "josevka-code";
-            privateBuildPlan = {
-              family = "Josevka Code";
-              spacing = "term";
-              serifs = "sans";
-              no-ligation = false;
-              ligations = { "inherit" = "dlig"; };
-              no-cv-ss = true;
-              variants = {
-                inherits = "ss14";
-                design = {
-                  b = "toothed-serifless";
-                  zero = "slashed";
-                  at = "fourfold";
-                };
-              };
-              slopes.upright = {
-                angle = 0;
-                shape = "upright";
-                menu = "upright";
-                css = "normal";
-              };
-              slopes.italic = {
-                  angle = 9.4;
-                  shape = "italic";
-                  menu = "italic";
-                  css = "italic";
-                };
-                
-                #weights.light = {
-                #  shape = 300;
-                #  menu = 300;
-                #  css = 300;
-                #};
-                
-                weights.regular = {
-                  shape = 400;
-                  menu = 400;
-                  css = 400;
-                };
-                #weights.medium = {
-                #  shape = 500;
-                #  menu = 500;
-                #  css = 500;
-                #};
-
-
-                widths.normal = {
-                  shape = 525;
-                  menu = 5;
-                  css = "normal";
-                };
-            };
-        };
-        in ''
-          mkdir -p ttf
+      }; in 
+      ''
+      mkdir -p ttf
           for ttf in ${josevka-code}/share/fonts/truetype/*.ttf; do
             cp $ttf .
             echo "processing $ttf"
-
               name=`basename -s .ttf $ttf`
               pyftsubset \
                 $ttf \
@@ -89,13 +40,12 @@
                 --unicodes="U+0000-0170,U+00D7,U+00F7,U+2000-206F,U+2074,U+20AC,U+2122,U+2190-21BB,U+2212,U+2215,U+F8FF,U+FEFF,U+FFFD,U+00E8"
               mv *.ttf ttf
           done
-        ''; 
-        installPhase = ''
+      '';
+       installPhase = ''
           mkdir -p $out
           cp *.woff2 $out
           cp ${src/family.css} $out/family.css
         '';
-      };
-
     };
-}
+});
+} 
